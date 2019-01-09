@@ -23,7 +23,8 @@ try {
                 }
             }
             stage('Build') {
-                execMaven("-Pintegration-test clean ${env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'}")
+                bat 'mvn -Pintegration-test clean ${env.BRANCH_NAME == \'master\' ? \'deploy\' : \'verify\'}'
+                //execMaven("-Pintegration-test clean ${env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'}")
                 archiveJUnitResults()
             }
             if (isBuildOK() && isReleaseVersion) {
