@@ -23,7 +23,8 @@ try {
                 }
             }
             stage('Build') {
-            bat 'mvn clean install'
+                    echo 'in Build'
+                //bat 'mvn clean install'
                 //bat 'mvn -Pintegration-test clean ${env.BRANCH_NAME == \'master\' ? \'deploy\' : \'verify\'}'
                 //execMaven("-Pintegration-test clean ${env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'}")
                 archiveJUnitResults()
